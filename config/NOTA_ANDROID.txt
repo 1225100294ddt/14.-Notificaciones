@@ -1,0 +1,14 @@
+CONFIGURACION DE DESUGARING
+
+El paquete flutter_local_notifications 20 o superior necesita desugaring en Android.
+Despues de ejecutar flutter create ., abre android/app/build.gradle.kts y agrega dentro de android > compileOptions:
+
+isCoreLibraryDesugaringEnabled = true
+
+Y al final del archivo agrega:
+
+dependencies {
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")
+}
+
+Si ya existe un bloque dependencies, agrega solo la linea coreLibraryDesugaring dentro del bloque existente.
